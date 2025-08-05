@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savory | Food Delivery App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fa 100%);
+            min-height: 100vh;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+        
+        .neumorphic-btn {
+            box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .neumorphic-btn:hover {
+            box-shadow: 4px 4px 8px #d1d9e6, -4px -4px 8px #ffffff;
+        }
+        
+        .food-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #FF9A8B 0%, #FF6B95 50%, #FF8E53 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold gradient-text">Savory</div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#" class="text-gray-700 hover:text-pink-500 transition">Home</a>
+            <a href="#" class="text-gray-700 hover:text-pink-500 transition">Menu</a>
+            <a href="#" class="text-gray-700 hover:text-pink-500 transition">About</a>
+            <a href="#" class="text-gray-700 hover:text-pink-500 transition">Contact</a>
+        </div>
+        <button class="neumorphic-btn px-6 py-2 rounded-full bg-white text-pink-500 font-medium md:hidden">
+            <i class="fas fa-bars"></i>
+        </button>
+        <button class="neumorphic-btn px-6 py-2 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-medium hidden md:block">
+            Download App
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-6 py-16 md:py-24">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight mb-6">
+                    Delicious Food <span class="gradient-text">Delivered</span> To Your Doorstep
+                </h1>
+                <p class="text-gray-600 text-lg mb-8">
+                    Order from your favorite restaurants with just a few taps. Fast delivery, amazing food, and great prices.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="neumorphic-btn px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-medium flex items-center justify-center">
+                        <i class="fas fa-play mr-2"></i> Watch Demo
+                    </button>
+                    <button class="neumorphic-btn px-8 py-3 rounded-full bg-white text-gray-800 font-medium flex items-center justify-center">
+                        <i class="fas fa-download mr-2"></i> Download App
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="glass-card w-80 h-80 rounded-3xl absolute -top-10 -left-10 z-0"></div>
+                <div class="glass-card w-80 h-80 rounded-3xl absolute -bottom-10 -right-10 z-0"></div>
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Food delivery" 
+                     class="relative z-10 w-full max-w-lg rounded-3xl object-cover shadow-xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Why Choose <span class="gradient-text">Savory</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="neumorphic-btn w-20 h-20 rounded-full bg-white flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bolt text-3xl text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fast Delivery</h3>
+                    <p class="text-gray-600">Get your food delivered in under 30 minutes or get it for free.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="neumorphic-btn w-20 h-20 rounded-full bg-white flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-utensils text-3xl text-orange-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fresh Food</h3>
+                    <p class="text-gray-600">Only the freshest ingredients from trusted local restaurants.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <div class="neumorphic-btn w-20 h-20 rounded-full bg-white flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-percent text-3xl text-yellow-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Great Deals</h3>
+                    <p class="text-gray-600">Exclusive discounts and offers for our loyal customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Dishes -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Popular <span class="gradient-text">Dishes</span></h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Discover our most loved dishes from top-rated restaurants</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Dish 1 -->
+                <div class="food-card glass-card rounded-3xl overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
+                             alt="Salad" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                            <i class="fas fa-heart text-pink-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Fresh Salad Bowl</h3>
+                        <p class="text-gray-600 text-sm mb-4">Mixed greens with avocado, cherry tomatoes, and balsamic dressing</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-pink-500">$12.99</span>
+                            <button class="neumorphic-btn w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                                <i class="fas fa-plus text-pink-500"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 2 -->
+                <div class="food-card glass-card rounded-3xl overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80" 
+                             alt="Pizza" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                            <i class="fas fa-heart text-pink-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Margherita Pizza</h3>
+                        <p class="text-gray-600 text-sm mb-4">Classic pizza with tomato sauce, mozzarella, and basil</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-pink-500">$14.99</span>
+                            <button class="neumorphic-btn w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                                <i class="fas fa-plus text-pink-500"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 3 -->
+                <div class="food-card glass-card rounded-3xl overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80" 
+                             alt="Pasta" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                            <i class="fas fa-heart text-pink-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Creamy Pasta</h3>
+                        <p class="text-gray-600 text-sm mb-4">Penne pasta with creamy mushroom sauce and parmesan</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-pink-500">$13.49</span>
+                            <button class="neumorphic-btn w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                                <i class="fas fa-plus text-pink-500"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 4 -->
+                <div class="food-card glass-card rounded-3xl overflow-hidden">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1098&q=80" 
+                             alt="Burger" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                            <i class="fas fa-heart text-pink-500"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Classic Burger</h3>
+                        <p class="text-gray-600 text-sm mb-4">Juicy beef patty with cheese, lettuce, and special sauce</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-pink-500">$10.99</span>
+                            <button class="neumorphic-btn w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                                <i class="fas fa-plus text-pink-500"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="neumorphic-btn px-8 py-3 rounded-full bg-white text-gray-800 font-medium">
+                    View Full Menu
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download -->
+    <section class="py-16 bg-gradient-to-r from-pink-50 to-orange-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Download Our <span class="gradient-text">Mobile App</span></h2>
+                    <p class="text-gray-600 mb-8">
+                        Get exclusive app-only deals and track your delivery in real-time. Available on both iOS and Android platforms.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="neumorphic-btn px-6 py-3 rounded-lg bg-gray-900 text-white font-medium flex items-center justify-center">
+                            <i class="fab fa-apple text-2xl mr-2"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Download on the</div>
+                                <div class="text-lg">App Store</div>
+                            </div>
+                        </button>
+                        <button class="neumorphic-btn px-6 py-3 rounded-lg bg-gray-900 text-white font-medium flex items-center justify-center">
+                            <i class="fab fa-google-play text-xl mr-2"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Get it on</div>
+                                <div class="text-lg">Google Play</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="glass-card w-64 h-96 rounded-3xl mx-auto relative z-10">
+                        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="App screen" 
+                             class="w-full h-full object-cover rounded-3xl">
+                    </div>
+                    <div class="glass-card w-64 h-96 rounded-3xl absolute -top-5 -left-5 z-0 opacity-70 hidden md:block"></div>
+                    <div class="glass-card w-64 h-96 rounded-3xl absolute -bottom-5 -right-5 z-0 opacity-70 hidden md:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">What Our <span class="gradient-text">Customers</span> Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "The food arrived hot and fresh, exactly as described. I love how easy it is to track my delivery in real-time!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Amazing selection of restaurants. The app is so intuitive and the delivery is always on time. Highly recommend!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-8 rounded-3xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily R." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Emily R.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "I use Savory almost daily. The food is always delicious and the customer service is excellent when I have questions."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-gradient-to-r from-pink-500 to-orange-500 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p class="max-w-2xl mx-auto mb-8">Subscribe to our newsletter for exclusive deals and updates</p>
+            
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" 
+                       class="flex-grow px-6 py-3 rounded-l-full focus:outline-none text-gray-800">
+                <button class="neumorphic-btn px-6 py-3 rounded-r-full bg-white text-pink-500 font-medium">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold gradient-text mb-4">Savory</div>
+                    <p class="text-gray-600 mb-4">Delicious food delivered fast to your doorstep.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="neumorphic-btn w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                            <i class="fab fa-facebook-f text-pink-500"></i>
+                        </a>
+                        <a href="#" class="neumorphic-btn w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                            <i class="fab fa-twitter text-pink-500"></i>
+                        </a>
+                        <a href="#" class="neumorphic-btn w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                            <i class="fab fa-instagram text-pink-500"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 transition">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 transition">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 transition">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 transition">FAQs</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 transition">Delivery</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-500 transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-map-marker-alt mr-2 text-pink-500"></i> 123 Food St, City
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-phone-alt mr-2 text-pink-500"></i> (123) 456-7890
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-envelope mr-2 text-pink-500"></i> hello@savory.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 mb-4 md:mb-0">© 2023 Savory. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-pink-500 transition">Terms of Service</a>
+                    <a href="#" class="text-gray-600 hover:text-pink-500 transition">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
