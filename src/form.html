@@ -69,6 +69,10 @@
                     <span class="ml-2 text-gray-700">น้ำปลา</span>
                 </label>
                 <label class="inline-flex items-center">
+                    <input type="checkbox" name="ingredient" value="ข้าว" class="form-checkbox h-5 w-5 text-blue-600">
+                    <span class="ml-2 text-gray-700">ข้าว</span>
+                </label>
+                <label class="inline-flex items-center">
                     <input type="checkbox" name="ingredient" value="น้ำตาลปี๊บ" class="form-checkbox h-5 w-5 text-blue-600">
                     <span class="ml-2 text-gray-700">น้ำตาลปี๊บ</span>
                 </label>
@@ -153,8 +157,13 @@
             const textInput = document.getElementById('textInput').value;
             const numberSelect = document.getElementById('numberSelect').value;
 
+            const selectedIngredients = Array.from(document.querySelectorAll('input[name="ingredient"]:checked'))
+                                            .map(checkbox => checkbox.value);
+
+            const combinedData = [textInput, ...selectedIngredients];
+
             const data = {
-                textInput: textInput,
+                textInput: combinedData, // Use the existing textInput field for combined data
                 numberSelect: numberSelect
             };
 

@@ -27,7 +27,7 @@ app.post('/submit-form', async (req, res) => {
     console.log('Text Input:', textInput);
     console.log('Number Select:', numberSelect);
 
-    const webhookUrl = 'http://localhost:5678/webhook-test/6265d406-df3f-4ada-8ad5-c5a3f6d86ae0';
+    const webhookUrl = 'http://localhost:5678/webhook/6265d406-df3f-4ada-8ad5-c5a3f6d86ae0';
 
     try {
         const response = await axios.post(webhookUrl, req.body);
