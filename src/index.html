@@ -78,7 +78,7 @@
                     Order from your favorite restaurants with just a few taps. Fast delivery, amazing food, and great prices.
                 </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="neumorphic-btn px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-medium flex items-center justify-center">
+                    <button id="watchDemoBtn" class="neumorphic-btn px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-orange-500 text-white font-medium flex items-center justify-center">
                         <i class="fas fa-play mr-2"></i> Watch Demo
                     </button>
                     <button class="neumorphic-btn px-8 py-3 rounded-full bg-white text-gray-800 font-medium flex items-center justify-center">
@@ -425,5 +425,16 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const watchDemoButton = document.getElementById('watchDemoBtn');
+            if (watchDemoButton) {
+                watchDemoButton.addEventListener('click', function() {
+                    window.location.href = '/form';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
