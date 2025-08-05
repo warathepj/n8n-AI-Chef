@@ -4,8 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fa 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+        
+        .neumorphic-btn {
+            box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .neumorphic-btn:hover {
+            box-shadow: 4px 4px 8px #d1d9e6, -4px -4px 8px #ffffff;
+        }
+        
+        .food-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #FF9A8B 0%, #FF6B95 50%, #FF8E53 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .custom-h1 {
+            font-size: 1.2em; /* Increase font size by 1.2 times */
+            font-weight: bold; /* Make the text bold */
+        }
+        input[type="text"] {
+            border: 1px solid black;
+        }
+    </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
+    <h1 class="custom-h1 mb-4">AI ช่วยคิดเมนู จากวัตถุดิบที่เหลือในบ้าน</h1>
     <form>
         <label for="textInput">Text Input:</label>
         <input type="text" id="textInput" name="textInput"><br><br>
