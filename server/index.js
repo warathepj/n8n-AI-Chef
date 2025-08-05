@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const axios = require('axios');
+const fs = require('fs'); // Import the 'fs' module
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,6 +33,16 @@ app.post('/submit-form', async (req, res) => {
     try {
         const response = await axios.post(webhookUrl, req.body);
         console.log('Webhook response:', response.data);
+
+        // Save webhook response to a file
+        const responseFilePath = path.join(__dirname, 'webhook-response.json');
+        try {
+            fs.writeFileSync(responseFilePath, JSON.stringify(response.data, null, 2));
+            console.log('Webhook response saved to webhook-response.json');
+        } catch (fileError) {
+            console.error('Error saving webhook response to file:', fileError.message);
+        }
+
         res.json({ message: 'Data received successfully and forwarded!', receivedData: req.body, webhookResponse: response.data });
     } catch (error) {
         console.error('Error forwarding data to webhook:', error.message);
