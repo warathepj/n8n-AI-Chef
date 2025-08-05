@@ -80,5 +80,35 @@
 
         <button type="submit">Submit</button>
     </form>
+    <script>
+        document.querySelector('form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const textInput = document.getElementById('textInput').value;
+            const numberSelect = document.getElementById('numberSelect').value;
+
+            const data = {
+                textInput: textInput,
+                numberSelect: numberSelect
+            };
+
+            try {
+                const response = await fetch('/submit-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                console.log('Success:', result);
+                alert('Data submitted successfully!');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error submitting data.');
+            }
+        });
+    </script>
 </body>
 </html>
