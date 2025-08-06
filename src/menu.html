@@ -3,9 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Menu</title>
 </head>
 <body>
-    menu
+    <h1>Menu Details</h1>
+    <div id="menu-name"></div>
+    <h2>Ingredients:</h2>
+    <ul id="ingredients-list"></ul>
+    <h2>Steps:</h2>
+    <ol id="steps-list"></ol>
+    <h2>Items to Buy:</h2> <!-- New heading -->
+    <ul id="to-buy-list"></ul> <!-- New list for toBuy items -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/menu-data')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Display menu name
+                    document.getElementById('menu-name').textContent = data.menuName;
+
+                    // Display ingredients
+                    const ingredientsList = document.getElementById('ingredients-list');
+                    data.ingredients.forEach(ingredient => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = ingredient;
+                        ingredientsList.appendChild(listItem);
+                    });
+
+                    // Display steps
+                    const stepsList = document.getElementById('steps-list');
+                    data.steps.forEach(step => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = step;
+                        stepsList.appendChild(listItem);
+                    });
+
+                    // Display items to buy (New code)
+                    const toBuyList = document.getElementById('to-buy-list');
+                    if (data.toBuy && Array.isArray(data.toBuy)) {
+                        data.toBuy.forEach(item => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = item;
+                            toBuyList.appendChild(listItem);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching menu data:', error);
+                    document.body.textContent = 'Failed to load menu data.';
+                });
+        });
+    </script>
 </body>
 </html>

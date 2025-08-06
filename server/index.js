@@ -54,6 +54,24 @@ app.post('/submit-form', async (req, res) => {
     }
 });
 
+// New API endpoint to serve webhook-response.json
+app.get('/api/menu-data', (req, res) => {
+    const menuDataPath = path.join(__dirname, 'webhook-response.json');
+    fs.readFile(menuDataPath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading webhook-response.json:', err);
+            return res.status(500).json({ message: 'Failed to load menu data.' });
+        }
+        try {
+            const jsonData = JSON.parse(data);
+            res.json(jsonData);
+        } catch (parseError) {
+            console.error('Error parsing webhook-response.json:', parseError);
+            res.status(500).json({ message: 'Failed to parse menu data.' });
+        }
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
