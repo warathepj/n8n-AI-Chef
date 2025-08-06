@@ -65,6 +65,10 @@
             <label class="block text-gray-700 text-sm font-bold mb-2">วัตถุดิบ:</label>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                 <label class="inline-flex items-center">
+                    <input type="checkbox" name="ingredient" value="น้ำตาลทราย" class="form-checkbox h-5 w-5 text-blue-600">
+                    <span class="ml-2 text-gray-700">น้ำตาลทราย</span>
+                </label>
+                <label class="inline-flex items-center">
                     <input type="checkbox" name="ingredient" value="น้ำปลา" class="form-checkbox h-5 w-5 text-blue-600">
                     <span class="ml-2 text-gray-700">น้ำปลา</span>
                 </label>
@@ -176,12 +180,20 @@
                     body: JSON.stringify(data)
                 });
 
-                const result = await response.json();
-                console.log('Success:', result);
-                alert('Data submitted successfully!');
+                if (response.redirected) {
+                    window.location.href = response.url; // Redirect the browser
+                } else if (!response.ok) {
+                    const errorResult = await response.json();
+                    console.error('Server error:', errorResult);
+                    alert('Error submitting data: ' + (errorResult.message || 'Unknown error'));
+                } else {
+                    const result = await response.json();
+                    console.log('Success:', result);
+                    alert('Data submitted successfully, but no redirect occurred.'); // Fallback if no redirect
+                }
             } catch (error) {
-                console.error('Error:', error);
-                alert('Error submitting data.');
+                console.error('Network error or unexpected response:', error);
+                alert('Error submitting data. Please check your network connection.');
             }
         });
     </script>

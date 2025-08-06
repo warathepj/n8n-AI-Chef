@@ -21,6 +21,10 @@ app.get('/form', (req, res) => {
     res.sendFile(path.join(__dirname, '../src', 'form.html'));
 });
 
+app.get('/menu', (req, res) => {
+    res.sendFile(path.join(__dirname, '../src', 'menu.html'));
+});
+
 // New POST route to handle form submissions
 app.post('/submit-form', async (req, res) => {
     const { textInput, numberSelect } = req.body;
@@ -39,11 +43,11 @@ app.post('/submit-form', async (req, res) => {
         try {
             fs.writeFileSync(responseFilePath, JSON.stringify(response.data, null, 2));
             console.log('Webhook response saved to webhook-response.json');
+            res.redirect('/menu'); // Redirect to /menu after saving
         } catch (fileError) {
             console.error('Error saving webhook response to file:', fileError.message);
+            res.status(500).json({ message: 'Data received, but failed to save webhook response.', error: fileError.message });
         }
-
-        res.json({ message: 'Data received successfully and forwarded!', receivedData: req.body, webhookResponse: response.data });
     } catch (error) {
         console.error('Error forwarding data to webhook:', error.message);
         res.status(500).json({ message: 'Data received, but failed to forward to webhook.', error: error.message });
