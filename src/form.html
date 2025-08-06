@@ -56,6 +56,14 @@
         input[type="text"] {
             border: 1px solid black;
         }
+        #submitButton {
+            background-color: green;
+            color: white; /* Added to make text visible on green background */
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
         .spinner-overlay {
             position: fixed;
             top: 0;
@@ -90,10 +98,12 @@
     </style>
 </head>
 <body class="overflow-x-hidden">
-    <h1 class="custom-h1 mb-4">AI ช่วยคิดเมนู จากวัตถุดิบที่เหลือในบ้าน</h1>
+    <h1 class="custom-h1 mb-2">AI ช่วยคิดเมนู จากวัตถุดิบที่เหลือในบ้าน</h1>
+    <p class="mb-4">ลองดูในตู้เย็น ในครัว ในตู้กับข้าว หรือ แปลงผักหลังบ้าน ว่ามีอะไรอยู่บ้าง แล้วให้ AI ช่วยคิดเมนูอาหารให้</p>
+
     <form>
         <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2">วัตถุดิบ:</label>
+            <label class="block text-gray-700 text-sm font-bold mb-2">วัตถุดิบที่มีอยู่:</label>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                 <label class="inline-flex items-center">
                     <input type="checkbox" name="ingredient" value="น้ำตาลทราย" class="form-checkbox h-5 w-5 text-blue-600">
@@ -166,10 +176,10 @@
             </div>
         </div>
         <br><br>
-        <label for="textInput">Text Input:</label>
+        <label for="textInput">วัตถุดิบที่มีอยู่ เพิ่มเติม:</label>
         <input type="text" id="textInput" name="textInput"><br><br>
 
-        <label for="numberSelect">Select a Number (1-10):</label>
+        <label for="numberSelect">จำนวนเมนูที่อยากได้ (1-10):</label>
         <select id="numberSelect" name="numberSelect">
             <option value="1">1</option>
             <option value="2">2</option>
