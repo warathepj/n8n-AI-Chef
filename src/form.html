@@ -56,6 +56,37 @@
         input[type="text"] {
             border: 1px solid black;
         }
+        .spinner-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden; /* Hidden by default */
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+        }
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .spinner-overlay.visible {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -152,11 +183,24 @@
             <option value="10">10</option>
         </select><br><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit" id="submitButton">Submit</button>
     </form>
+
+    <div id="spinnerOverlay" class="spinner-overlay">
+        <div class="spinner"></div>
+    </div>
+
     <script>
-        document.querySelector('form').addEventListener('submit', async function(event) {
+        const form = document.querySelector('form');
+        const submitButton = document.getElementById('submitButton');
+        const spinnerOverlay = document.getElementById('spinnerOverlay');
+
+        form.addEventListener('submit', async function(event) {
             event.preventDefault(); // Prevent default form submission
+
+            // Show spinner and disable button
+            spinnerOverlay.classList.add('visible');
+            submitButton.disabled = true;
 
             const textInput = document.getElementById('textInput').value;
             const numberSelect = document.getElementById('numberSelect').value;
@@ -186,14 +230,23 @@
                     const errorResult = await response.json();
                     console.error('Server error:', errorResult);
                     alert('Error submitting data: ' + (errorResult.message || 'Unknown error'));
+                    // Hide spinner and re-enable button on error
+                    spinnerOverlay.classList.remove('visible');
+                    submitButton.disabled = false;
                 } else {
                     const result = await response.json();
                     console.log('Success:', result);
                     alert('Data submitted successfully, but no redirect occurred.'); // Fallback if no redirect
+                    // Hide spinner and re-enable button if no redirect
+                    spinnerOverlay.classList.remove('visible');
+                    submitButton.disabled = false;
                 }
             } catch (error) {
                 console.error('Network error or unexpected response:', error);
                 alert('Error submitting data. Please check your network connection.');
+                // Hide spinner and re-enable button on network error
+                spinnerOverlay.classList.remove('visible');
+                submitButton.disabled = false;
             }
         });
     </script>
