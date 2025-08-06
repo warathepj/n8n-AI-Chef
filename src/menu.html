@@ -4,16 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f8f9fa 100%);
+            min-height: 100vh;
+            padding: 1rem; /* Added padding */
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+        
+        .neumorphic-btn {
+            box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .neumorphic-btn:hover {
+            box-shadow: 4px 4px 8px #d1d9e6, -4px -4px 8px #ffffff;
+        }
+        
+        .food-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #FF9A8B 0%, #FF6B95 50%, #FF8E53 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
 </head>
-<body>
-    <h1>Menu Details</h1>
+<body class="overflow-x-hidden">
+    <h1 class="font-bold">Menu Details</h1>
     <div id="menu-name"></div>
-    <h2>Ingredients:</h2>
-    <ul id="ingredients-list"></ul>
-    <h2>Steps:</h2>
-    <ol id="steps-list"></ol>
-    <h2>Items to Buy:</h2> <!-- New heading -->
-    <ul id="to-buy-list"></ul> <!-- New list for toBuy items -->
+    <h2 class="font-bold">Ingredients:</h2>
+    <ul id="ingredients-list" class="mb-4"></ul>
+    <h2 class="font-bold">Steps:</h2>
+    <ol id="steps-list" class="mb-4"></ol>
+    <h2 class="font-bold">Items to Buy:</h2> <!-- New heading -->
+    <ul id="to-buy-list" class="mb-4"></ul> <!-- New list for toBuy items -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
